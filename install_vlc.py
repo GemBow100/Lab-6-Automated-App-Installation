@@ -59,7 +59,7 @@ def download_installer(version = '3.0.21'):
     """
     
     # Hint: See example code in lab instructions entitled "Downloading a Binary File"
-    file_url = f'https://download.videolan.org/pub/videolan/vlc/{version}/win64/vlc-{version}-win64.exe'
+    file_url = f'https://download.videolan.org/pub/videolan/vlc/3.0.21/win64/vlc-3.0.21-win64.exe'
     resp_msg = requests.get(file_url)
 
     if resp_msg.status_code == requests.codes.ok:
@@ -82,7 +82,7 @@ def installer_ok(installer_data, expected_sha256):
     """    
     # TODO: Step 3
     # Hint: See example code in lab instructions entitled "Computing the Hash Value of a Response Message Body"
-    file_url = f'https://download.videolan.org/pub/videolan/vlc/{version}/win64/vlc-{version}-win64.exe'
+    file_url = f'https://download.videolan.org/pub/videolan/vlc/3.0.21/win64/vlc-3.0.21-win64.exe'
     resp_msg = requests.get(file_url)
 
     if resp_msg.status_code == requests.codes.ok:
@@ -104,7 +104,7 @@ def save_installer(installer_data):
     """
 
     # Hint: See example code in lab instructions entitled "Downloading a Binary File"
-    file_url = f'https://download.videolan.org/pub/videolan/vlc/{version}/win64/vlc-{version}-win64.exe'
+    file_url = f'https://download.videolan.org/pub/videolan/vlc//win64/vlc-3.0-win64.exe'
     resp_msg = requests.get(file_url)
 
     if resp_msg.status_code == requests.codes.ok:
