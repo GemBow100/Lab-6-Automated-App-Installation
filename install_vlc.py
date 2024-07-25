@@ -66,8 +66,10 @@ def download_installer(version = '3.0.21'):
         file_content =resp_msg.content
         
 
-        with open (r'C:\Windows\temp\vlc-3.0.21-win64', 'wb') as file:
+        with open (r'C:\temp\vlc-3.0.21-win64', 'wb') as file:
             file.write(file_content)
+
+        
     return
 
 def installer_ok(installer_data, expected_sha256):
@@ -109,11 +111,16 @@ def save_installer(installer_data):
     resp_msg = requests.get(file_url)
 
     if resp_msg.status_code == requests.codes.ok:
-        file_content =resp_msg.content
+        file_content = resp_msg.content
+        file.write(file_content)
+
+        file_path = r'C:\temp\vlc-3.0.21-win64'
         
-        with open (r'C:\Windows\temp\vlc-3.0.21-win64', 'wb') as file:
-            file.write(file_content)
-    return installer_data
+        with open (file_path, 'wb') as file:
+            file.write(installer_data)
+
+        
+    return 
 
 def run_installer(installer_path):
     """Silently runs the VLC installer.
