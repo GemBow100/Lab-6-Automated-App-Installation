@@ -65,7 +65,8 @@ def download_installer(version = '3.0.21'):
     if resp_msg.status_code == requests.codes.ok:
         file_content =resp_msg.content
         
-        with open (r'C:\temp\vlc-3.0.21-win64', 'wb') as file:
+
+        with open (r'C:\Windows\temp\vlc-3.0.21-win64', 'wb') as file:
             file.write(file_content)
     return
 
@@ -80,7 +81,7 @@ def installer_ok(installer_data, expected_sha256):
     Returns:
         bool: True if SHA-256 of VLC installer matches expected SHA-256. False if not.
     """    
-    # TODO: Step 3
+    # Step 3
     # Hint: See example code in lab instructions entitled "Computing the Hash Value of a Response Message Body"
     file_url = f'https://download.videolan.org/pub/videolan/vlc/3.0.21/win64/vlc-3.0.21-win64.exe'
     resp_msg = requests.get(file_url)
@@ -110,7 +111,7 @@ def save_installer(installer_data):
     if resp_msg.status_code == requests.codes.ok:
         file_content =resp_msg.content
         
-        with open (r'C:\temp\vlc-3.0.21-win64', 'wb') as file:
+        with open (r'C:\Windows\temp\vlc-3.0.21-win64', 'wb') as file:
             file.write(file_content)
     return installer_data
 
