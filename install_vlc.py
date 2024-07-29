@@ -2,7 +2,6 @@ import requests
 import hashlib
 import subprocess
 import os
-import sys
 
 def main():
 
@@ -23,7 +22,7 @@ def main():
         run_installer(installer_path)
 
         # Delete the VLC installer from disk
-        #delete_installer(installer_path)
+        delete_installer(installer_path)
 
 def get_expected_sha256(version= '3.0.21'):
     """Downloads the text file containing the expected SHA-256 value for the VLC installer file from the 
@@ -35,14 +34,15 @@ def get_expected_sha256(version= '3.0.21'):
     # TODO: Step 1
     # Hint: See example code in lab instructions entitled "Extracting Text from a Response Message Body"
     file_url = f'https://download.videolan.org/pub/videolan/vlc/{version}/win64/vlc-{version}-win64.exe.sha256'
-    resp_msg =requests.get(file_url)
-    
+    resp_msg = requests.get(file_url)
+
+    #check whether the download was successful
     if resp_msg.status_code == requests.codes.ok:
     
         print(f'Success!')
-        
+        #extract test file content from response message body
         file_content = resp_msg.text
-    
+        #
         expected_sha256 = file_content[:64]
     
         print('expected_sha256 of vlc installer:', expected_sha256)
@@ -51,8 +51,6 @@ def get_expected_sha256(version= '3.0.21'):
     else:
         print (f'Failure!')
         pass
-
-    
     
     
 
@@ -64,7 +62,7 @@ def download_installer(version = '3.0.21'):
     """
     
     # Hint: See example code in lab instructions entitled "Downloading a Binary File"
-    file_url = f'https://download.videolan.org/pub/videolan/vlc/3.0.21/win64/vlc-3.0.21-win64.exe'
+    file_url = f'https://download.videolan.org/pub/videolan/vlc/{version}/win64/vlc-{version}-win64.exe'
     resp_msg = requests.get(file_url)
 
     if resp_msg.status_code == requests.codes.ok:
