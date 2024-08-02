@@ -121,7 +121,7 @@ def run_installer(installer_path):
 
     #See example code in lab instructions entitled "Running the VLC Installer"
 
-    subprocess.run([installer_path,'/L=1033', '/S'])
+    subprocess.run([installer_path,'/L=1033', '/S'], shell=True)
 
     return
     
