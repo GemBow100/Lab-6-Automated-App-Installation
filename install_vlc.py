@@ -120,7 +120,7 @@ def run_installer(installer_path):
     """    
 
     #See example code in lab instructions entitled "Running the VLC Installer"
-    installer_path = r'C:\temp\vlc-3.0.21-win64'
+
     subprocess.run([installer_path,'/L=1033', '/S'])
 
     return
@@ -128,8 +128,8 @@ def run_installer(installer_path):
 def delete_installer(installer_path):
 
     # Hint: See example code in lab instructions entitled "Running the VLC Installer"
-    os.remove(installer_path= r'C:\temp\vlc-3.0.21-win64')
-    return installer_path
+    os.remove(installer_path)
+    return 
 
 if __name__ == '__main__':
     main()
